@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/banner.png" alt="The Junzi Harness — a conduct codex for AI coding agents" width="100%">
+</p>
+
 # The Junzi Harness
 
 **君子 — a conduct codex that rides in context, so a capable coding agent also behaves like one.**
