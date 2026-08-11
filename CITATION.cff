@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use or adapt the Junzi Codex, please cite it."
+title: "The Junzi Codex"
+abstract: >-
+  A conduct codex for autonomous AI coding agents, skinned as the Confucian
+  way of the junzi — four disciplines drawn from the Five Constants (Li, Zhi,
+  Xin, Yi), each rule carrying an observable falsifier. Part of a small family
+  of conduct harnesses.
+type: dataset
+authors:
+  - family-names: Wender
+    given-names: Arnold
+version: "1.0"
+date-released: "2026-08-11"
+license: CC-BY-4.0
+repository-code: "https://github.com/arnoldwender/junzi-harness"
+keywords:
+  - AI agents
+  - agent harness
+  - conduct codex
+  - prompt engineering
+  - agent alignment
