@@ -16,11 +16,11 @@
 Beneath the fixed opening, the harness prints one rotating line from [`precepts.txt`](precepts.txt)
 — a precept of the day, changing daily. The opening never changes; the precept rotates. Edit
 [`precepts.txt`](precepts.txt) (one `Precept — Author` per line) to curate or extend the pool.
-Twelve of the thirteen lines below are James Legge's renderings (Legge died 1897; his
-translations of the Analects, Mencius, the Tao Te Ching and Zhuangzi are public domain
-worldwide). The exception is the Xunzi line — Legge never translated Xunzi, and this
-line's translator is **not identified**; its public-domain status is therefore unverified
-and it should be re-sourced or replaced before anyone relies on it. The current pool:
+Every line below is James Legge's rendering. Legge died in 1897, so his translations of
+the Analects, Mencius, the Tao Te Ching and Zhuangzi are public domain worldwide — no
+life-plus-70 jurisdiction excepted. (An earlier pool carried a Xunzi line whose translator
+could not be identified; Legge never translated Xunzi, so it was replaced rather than
+attributed on a guess.) The current pool:
 
 > - *Learning without thought is labour lost; thought without learning is perilous.* — Confucius, Analects
 > - *Is it not pleasant to learn with a constant perseverance and application?* — Confucius, Analects
@@ -34,6 +34,6 @@ and it should be re-sourced or replaced before anyone relies on it. The current 
 > - *He who knows other men is discerning; he who knows himself is intelligent. He who overcomes others is strong; he who overcomes himself is mighty.* — Laozi, Tao Te Ching
 > - *The journey of a thousand li commenced with a single step.* — Laozi, Tao Te Ching
 > - *There is a limit to our life, but to knowledge there is no limit.* — Zhuangzi
-> - *The superior man says: Study should never stop.* — Xunzi
+> - *When you know a thing, to hold that you know it; and when you do not know a thing, to allow that you do not know it - this is knowledge.* — Confucius, Analects
 
 *The harness emits this first, on startup — [`bin/precept`](bin/precept).*
