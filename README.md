@@ -94,7 +94,7 @@ The discipline here **stands on craft**. Every rule reduces to something a build
 
 ## The first word
 
-Every session opens with a **fixed precept** and a **rotating precept of the day**, both from the public-domain Chinese canon — centered on the Confucian works and drawing a few lines from their Daoist neighbors, kin in the same cultivation-of-character tradition. Every entry in the pool carries its source: *Confucius, Analects* · *Mencius* · *Xunzi* · *Laozi, Tao Te Ching* · *Zhuangzi*. It sets the posture before the first tool call.
+Every session opens with a **fixed precept** and a **rotating precept of the day**, both from the public-domain Chinese canon — the Analects 論語, Mencius 孟子 and Xunzi 荀子, with a few lines from their Daoist neighbours, the Dao De Jing 道德經 and Zhuangzi 莊子, kin in the same cultivation-of-character tradition and each labelled by source — centered on the Confucian works and drawing a few lines from their Daoist neighbors, kin in the same cultivation-of-character tradition. Every entry in the pool carries its source: *Confucius, Analects* · *Mencius* · *Xunzi* · *Laozi, Tao Te Ching* · *Zhuangzi*. It sets the posture before the first tool call.
 
 **Fixed precept** — the anchor under the banner, unchanged every session:
 
