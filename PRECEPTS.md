@@ -16,7 +16,11 @@
 Beneath the fixed opening, the harness prints one rotating line from [`precepts.txt`](precepts.txt)
 — a precept of the day, changing daily. The opening never changes; the precept rotates. Edit
 [`precepts.txt`](precepts.txt) (one `Precept — Author` per line) to curate or extend the pool.
-All sources are public-domain. The current pool:
+Twelve of the thirteen lines below are James Legge's renderings (Legge died 1897; his
+translations of the Analects, Mencius, the Tao Te Ching and Zhuangzi are public domain
+worldwide). The exception is the Xunzi line — Legge never translated Xunzi, and this
+line's translator is **not identified**; its public-domain status is therefore unverified
+and it should be re-sourced or replaced before anyone relies on it. The current pool:
 
 > - *Learning without thought is labour lost; thought without learning is perilous.* — Confucius, Analects
 > - *Is it not pleasant to learn with a constant perseverance and application?* — Confucius, Analects
