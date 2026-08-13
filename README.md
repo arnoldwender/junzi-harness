@@ -128,3 +128,9 @@ Adopt the paste-in block today; wire the hook when you want it hands-free.
 ---
 
 *This is the Confucian edition of a small family of conduct harnesses — the same four disciplines, skinned in different traditions of character and craft. Same spine, different tongue. 仁.*
+
+## License
+
+**MIT** — see [LICENSE](LICENSE). A [`CITATION.cff`](CITATION.cff) (CC-BY-4.0) gives the
+citable form. MIT keeps the one thing that actually protects users — the liability
+disclaimer — while letting the codex be pasted anywhere without attribution friction.
