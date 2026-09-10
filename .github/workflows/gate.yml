@@ -7,6 +7,17 @@ name: gate
 # check.yml). This workflow adds the rectify-names gate alongside it; it is
 # deliberately a separate job so a naming finding is legible on its own.
 #
+# The citation gate runs here too. `scripts/check.py` proves the README quotes a
+# line the emitter really emits; it cannot tell whether that line was ever
+# written by the person it names. Four of the ten harnesses in this family
+# shipped fabricated citations, which is why gate/citations.py exists and why it
+# runs on every push rather than at release time.
+#
+# The `--online` pass, which resolves every source URL, is bound to
+# workflow_dispatch only. Link rot is worth knowing about; it is not a reason to
+# block a commit that never touched the link, and it is not worth a scheduled
+# run on a private repo.
+#
 # No step interpolates untrusted input into a `run:`. The one context value this
 # workflow needs — the PR's target branch — is passed through `env:` and quoted
 # at the point of use, never pasted into the command line.
@@ -43,10 +54,17 @@ jobs:
           python-version: "3.12"
 
       - name: Install
-        run: python -m pip install --upgrade pip pytest
+        run: python -m pip install --upgrade pip pytest pyyaml
 
       - name: Self-check (the repo keeps its own promises)
         run: python3 scripts/check.py
+
+      - name: Citation gate (every attributed quotation traces to a source)
+        run: python3 gate/citations.py --sarif citations.sarif
+
+      - name: Citation gate, online (manual runs only)
+        if: github.event_name == 'workflow_dispatch'
+        run: python3 gate/citations.py --online
 
       - name: Rectify-names gate (whole repo)
         run: python3 gate/rectify_names.py --all --sarif names.sarif
@@ -69,4 +87,12 @@ jobs:
         with:
           name: rectify-names-sarif
           path: names.sarif
+          if-no-files-found: ignore
+
+      - name: Upload citation SARIF
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: citations-sarif
+          path: citations.sarif
           if-no-files-found: ignore

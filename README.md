@@ -166,6 +166,22 @@ The tests are the other half. [`tests/test_rectify_names.py`](tests/test_rectify
 
 ---
 
+## The second gate: 信, provenance
+
+[`scripts/check.py`](scripts/check.py) already proves the README quotes a line the emitter really emits. It cannot tell you whether that line was ever written by the person named beside it. Four of the ten harnesses in this family shipped fabricated citations before anyone noticed — that is a **信 Xìn** failure, rule 4: *invent nothing — no fabricated number, citation, or source.*
+
+[`gate/citations.py`](gate/citations.py) closes it. Every attributed quotation in the README, [`PRECEPTS.md`](PRECEPTS.md), [`CODEX.md`](CODEX.md), [`codex-block.md`](codex-block.md) and [`EXAMPLE.md`](EXAMPLE.md) must resolve to a file in [`sources/`](sources/) carrying work, author, the author's dates, year, per-jurisdiction public-domain status, and a source URL. Missing any one of those fields fails the gate, because a quotation is not sourced until **someone who is not us** can check it.
+
+Three of its checks earn their keep beyond simple lookup:
+
+- **Arithmetic no reader does.** A work cannot predate its author's birth, and an author cannot write after dying — unless the file declares `posthumous: true`. The Analects is a posthumous compilation and says so. An *undeclared* posthumous date is indistinguishable from a wrong one.
+- **Public domain is claimed per jurisdiction, never in general.** The US rule is publication-based; the EU rule is life of the author plus seventy, and a translation carries its own separate term. James Legge died in 1897, so his renderings cleared EU life-plus-70 in 1968 — that arithmetic is written out in each file rather than asserted.
+- **Unverified stays visible.** A source may be marked `provenance: unverified`, but only with a `provenance_note` saying exactly what could not be confirmed. Honesty is cheap; silence is not an option. Two files here are marked that way, and they say why.
+
+Exit `0` clean · `1` findings · `2` the gate itself failed — the same contract the rest of the family uses. `--online` additionally resolves every source URL; it runs on manual dispatch, since link rot is worth knowing about and is no reason to block a commit that never touched the link.
+
+---
+
 ## Status
 
 **Early, but real.** The disciplines are settled and the reference wiring ships with the harness:
@@ -173,7 +189,7 @@ The tests are the other half. [`tests/test_rectify_names.py`](tests/test_rectify
 - the **session-start hook** that injects the codex plus the opening precept;
 - **starter agents** already carrying the four disciplines;
 - the **rectification-of-names gate** — [`gate/rectify_names.py`](gate/rectify_names.py), with its tests and a mutation check that proves they bite;
-- **[`PRECEPTS.md`](PRECEPTS.md)** — the vetted, sourced rotation;
+- **[`PRECEPTS.md`](PRECEPTS.md)** — the vetted, sourced rotation, with [`sources/`](sources/) and [`gate/citations.py`](gate/citations.py) behind it so "sourced" is a check and not a claim;
 - a **worked before/after example** in [`EXAMPLE.md`](EXAMPLE.md) — the same task run without the harness (done-declared-early, a shortcut, a softened report) and with it (gates backed the "done," the reversible path was taken, the failure was stated plainly).
 
 Adopt the paste-in block today; wire the hook when you want it hands-free.

@@ -1,0 +1,63 @@
+# The Analects lines quoted in Chinese in README.md and CODEX.md, with the
+# English the repo prints beside them.
+#
+# THE CHINESE IS VERIFIED. THE ENGLISH IS NOT A PUBLISHED TRANSLATION.
+#
+# Every character reference below was checked against the text on 2026-09-10
+# and every one is right - the passages exist, and the chapter numbers match
+# the modern decimal convention the repo uses throughout:
+#
+#   2.17  知之為知之，不知為不知，是知也
+#   2.22  人而無信，不知其可也
+#   2.24  見義不為，無勇也
+#   4.16  君子喻於義
+#   12.1  克己復禮為仁
+#   13.3  名不正，則言不順
+#   13.17 欲速則不達
+#   15.10 工欲善其事，必先利其器   (Legge numbers this one XV.IX)
+#   16.13 不學禮，無以立
+#
+# What could NOT be confirmed is the English. These renderings match no
+# published translation that could be located - not Legge, whose wordings are
+# recorded in analects-legge.yml and are visibly different. Compare:
+#
+#   CODEX.md  "A person without trust - I cannot see what use they are."
+#   Legge     "I do not know how a man without truthfulness is to get on."
+#
+#   CODEX.md  "To see what is right and fail to do it is want of courage."
+#   Legge     "To see what is right and not to do it is want of courage."
+#
+#   README    "The craftsman who would do his work well first sharpens his tools"
+#   Legge     "The mechanic, who wishes to do his work well, must first sharpen
+#              his tools."
+#
+# They read as the repo's own condensations of the Chinese, which is a legitimate
+# thing to write and an illegitimate thing to leave in quotation marks with a
+# chapter number after it. That is the shape of the failure this gate exists to
+# catch, so it is recorded here rather than quietly smoothed over. Marked
+# unverified until either a published edition is named for each wording, or the
+# text says plainly that the English is the repo's own gloss.
+work: "Confucian Analects, cited in classical Chinese with editorial English glosses"
+author: "Confucius (Kong Qiu)"
+author_born: -551
+author_died: -479
+year: -400
+posthumous: true
+edition: "Chinese passages verified against ctext.org and Legge's printed text (Project Gutenberg 3330), 2026-09-10. Chapter numbering is the modern decimal convention. English wordings are editorial and are attributed to no edition."
+pd_status_us: "The classical Chinese text is public domain worldwide. The English glosses are original writing by the repo author and carry that author's own rights, not a translator's."
+pd_status_eu: "Confucius died 479 BC, so the Chinese is public domain in the EU. The English glosses are the repo author's own words, published under the repo's MIT licence."
+source_url: "https://www.gutenberg.org/ebooks/3330"
+provenance: unverified
+provenance_note: "The Chinese source references are all verified - the passages exist and the chapter numbers are correct. What is unverified is the ENGLISH: the renderings printed in CODEX.md and README.md could not be located in any published translation, and they differ measurably from Legge, whom PRECEPTS.md names as the pool's translator. They appear to be the repo's own condensations. Four of them sit inside quotation marks with a chapter citation, which presents an editorial gloss as a quotation. Needs a decision from the author: name an edition for each, or mark the English as the repo's own rendering."
+quotes:
+  - "Without right form, one has no ground to stand."
+  - "To know what you know, and to know what you do not - that is wisdom."
+  - "A person without trust - I cannot see what use they are."
+  - "To see what is right and fail to do it is want of courage."
+  - "to master oneself and return to right form is benevolence"
+  - "the junzi is moved by what is right"
+  - "desire speed and you will not arrive"
+  - "The craftsman who would do his work well first sharpens his tools"
+  - "If names are not correct, language does not accord with the truth of things"
+  - "A person without trustworthiness - I do not know what they are good for"
+  - "To see what is right and not do it is want of courage"

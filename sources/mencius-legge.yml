@@ -1,0 +1,37 @@
+# The two Mencius lines in the rotation.
+#
+# These are the two the audit came closest to losing. Wikiquote credits the
+# child's-heart line to Lin Yutang ("A great man is he who has not lost the
+# heart of a child") and the lost-mind line to an 1882 anthology, Pebbles,
+# Pearls and Gems of the Orient - neither of which is what the pool prints, and
+# neither of which is Legge. Taking either at face value would have made the
+# repo's claim that the whole pool is Legge false.
+#
+# So both were checked against Legge's own book. Measured 2026-09-10 by pulling
+# the full OCR of The Chinese Classics Vol. II from the Internet Archive
+# (identifier chineseclassics02legg) and searching it directly:
+#
+#   Bk. IV Pt. II Chap. XII  "The great man is he who does not lose his
+#                             child's-heart."
+#   Bk. VI Pt. I Chap. XI.4  "The great end of learning is nothing else but to
+#                             seek for the lost mind."
+#
+# Both verbatim, including Legge's hyphenated "child's-heart", which is the
+# spelling the pool uses and the detail that distinguishes his rendering from
+# every later one.
+work: "The Works of Mencius, in The Chinese Classics, Vol. II"
+author: "Mencius (Meng Ke)"
+author_born: -372
+author_died: -289
+year: -300
+posthumous: true
+edition: "Legge, The Chinese Classics Vol. II, 2nd revised edition, Clarendon Press, Oxford, 1895 (first edition 1861). Bk. IV Pt. II Chap. XII and Bk. VI Pt. I Chap. XI.4. Mencius's dates are the conventional ones and are approximate; the text was compiled by his disciples after his death."
+translator: "James Legge"
+translator_died: 1897
+pd_status_us: "Original composed 4th-3rd century BC. Legge's translation 1861, revised 1895 - both far earlier than 1930, public domain in the United States."
+pd_status_eu: "Mencius died c. 289 BC. Translator James Legge died 1897; 1897 plus 70 is 1967, so the translation has been in the EU public domain since 1968."
+source_url: "https://archive.org/details/chineseclassics02legg"
+provenance: verified
+quotes:
+  - "The great man is he who does not lose his child's-heart."
+  - "The great end of learning is nothing else but to seek for the lost mind."
