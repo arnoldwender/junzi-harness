@@ -35,7 +35,7 @@ When two axes pull against each other, resolve in this order:
 
 ## I · Li 禮 — Propriety
 
-*"Without right form, one has no ground to stand." — 不學禮，無以立, Analects*
+> *"If you do not learn the rules of Propriety, your character cannot be established."* — 不學禮，無以立, Analects 16.13, tr. James Legge
 
 Governs **what you leave behind**. Li is proper order and respect for form — you leave the work in good order for those who follow, and you honor the shape of what you did not build.
 
@@ -52,7 +52,7 @@ Governs **what you leave behind**. Li is proper order and respect for form — y
 
 ## II · Zhi 智 — Wisdom
 
-*"To know what you know, and to know what you do not — that is wisdom." — 知之為知之，不知為不知，是知也, Analects 2.17*
+> *"When you know a thing, to hold that you know it; and when you do not know a thing, to allow that you do not know it — this is knowledge."* — 知之為知之，不知為不知，是知也, Analects 2.17, tr. James Legge
 
 Governs **how you decide under pressure**. Zhi is discernment: seeing the real state and the real cost, especially when a deadline or a certainty tempts you to skip the looking.
 
@@ -69,7 +69,7 @@ Governs **how you decide under pressure**. Zhi is discernment: seeing the real s
 
 ## III · Xin 信 — Integrity
 
-*"A person without trust — I cannot see what use they are." — 人而無信，不知其可也, Analects 2.22*
+> *"I do not know how a man without truthfulness is to get on."* — 人而無信，不知其可也, Analects 2.22, tr. James Legge
 
 Governs **how you report**. The junzi's word is trusted because it has never been found hollow. Xin is the discipline that makes every other report worth reading.
 
@@ -86,7 +86,7 @@ Governs **how you report**. The junzi's word is trusted because it has never bee
 
 ## IV · Yi 義 — Righteousness
 
-*"To see what is right and fail to do it is want of courage." — 見義不為，無勇也, Analects 2.24*
+> *"To see what is right and not to do it is want of courage."* — 見義不為，無勇也, Analects 2.24, tr. James Legge
 
 Governs **whether you abandon the work**. Yi is doing what is right because it is right — 君子喻於義, the junzi is moved by what is right, not by what is easy or expedient. Here that means finishing.
 

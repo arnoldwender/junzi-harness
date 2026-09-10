@@ -1,4 +1,15 @@
-# Every Analects line in the rotation, in James Legge's rendering.
+# Every Analects line the repo prints in English, in James Legge's rendering:
+# the rotation pool AND the four section epigraphs of CODEX.md.
+#
+# THE EPIGRAPHS WERE NOT ALWAYS LEGGE. Until 2026-09-10 the four CODEX.md
+# epigraphs carried the repo's own condensations inside quotation marks with a
+# chapter number after them — a gloss wearing the dress of a quotation, which is
+# the one thing 正名 forbids in a repo whose gate is named after it. The Chinese
+# was right in all four; only the English was invented. Three of the four were
+# replaced with the wordings below, verified the same way as the rotation; the
+# fourth (2.17) was already in this file for the pool. The condensations they
+# replaced are recorded in analects-chinese-editorial-glosses.yml rather than
+# deleted, so the substitution can be audited instead of taken on trust.
 #
 # Verified 2026-09-10 against TWO independent copies of Legge's own text, not
 # against a quotation site: Project Gutenberg ebook 3330 (Legge's Analects, with
@@ -22,7 +33,7 @@ author_born: -551
 author_died: -479
 year: -400
 posthumous: true
-edition: "Legge's 1861 translation, Vol. I of The Chinese Classics. Locations, Legge numbering first, modern decimal second: I.I (1.1) constant perseverance; II.XV (2.15) learning without thought; II.XVII (2.17) to know that you know; VI.XVIII (6.20) know, love, delight; VII.XXI (7.22) two others as teachers; IX.XXV (9.26) commander of the forces; XIII.III (13.3) if names be not correct; XV.XXIX (15.30) faults not reformed; IV.XVII (4.17) men of worth. Legge prints II.XVII as 'do not know it;— this is knowledge' and XV.XXIX as 'reform them,— this, indeed'; the pool normalises both dashes."
+edition: "Legge's 1861 translation, Vol. I of The Chinese Classics. Locations, Legge numbering first, modern decimal second: I.I (1.1) constant perseverance; II.XV (2.15) learning without thought; II.XVII (2.17) to know that you know; II.XXII (2.22) a man without truthfulness; II.XXIV.2 (2.24) want of courage; VI.XVIII (6.20) know, love, delight; VII.XXI (7.22) two others as teachers; IX.XXV (9.26) commander of the forces; XIII.III (13.3) if names be not correct; XV.XXIX (15.30) faults not reformed; XVI.XIII.3 (16.13) the rules of Propriety; IV.XVII (4.17) men of worth. Legge prints II.XVII as 'do not know it;— this is knowledge' and XV.XXIX as 'reform them,— this, indeed'; the pool normalises both dashes to a hyphen and the CODEX.md epigraph normalises the first to a spaced em dash. XVI.XIII.3 is Confucius quoted inside Po-yu's report of him, which is why Legge sets it in inner quotation marks; the sentence is the Master's own. Four of these are quoted in Chinese as well as English, and the pairing was checked against the Chinese independently of ctext.org (which serves deliberately corrupted text to automated readers): zh.wikisource.org 論語/爲政第二 sections 二之十七, 二之二二, 二之二四 and 論語/季氏第十六 section 十六之十三, read 2026-09-10. Wikisource sets 爲 where the repo sets 為 — the same character in an older orthographic form, not a different passage."
 translator: "James Legge"
 translator_died: 1897
 pd_status_us: "Original composed 5th-4th century BC. Legge's translation published 1861, far earlier than 1930 - public domain in the United States."
@@ -39,3 +50,6 @@ quotes:
   - "The commander of the forces of a large state may be carried off, but the will of even a common man cannot be taken from him."
   - "When you know a thing, to hold that you know it; and when you do not know a thing, to allow that you do not know it - this is knowledge."
   - "If names be not correct, language is not in accordance with the truth of things."
+  - "If you do not learn the rules of Propriety, your character cannot be established."
+  - "I do not know how a man without truthfulness is to get on."
+  - "To see what is right and not to do it is want of courage."
