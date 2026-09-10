@@ -1,0 +1,25 @@
+# The single Zhuangzi line in the rotation.
+#
+# Verified 2026-09-10 in the same Internet Archive scan of Sacred Books of the
+# East Vol. 39 (identifier wg939) used for the Tao Te Ching entry. It opens
+# Book III, which Legge titles "Yang Shang Ku, or Nourishing the Lord of Life":
+#
+#   "1. There is a limit to our life, but to knowledge there is no limit. With
+#   what is limited to pursue after what is unlimited is a perilous thing..."
+#
+# The pool prints the first clause only, verbatim.
+work: "The Writings of Chuang Tzu, in The Texts of Taoism, Sacred Books of the East Vol. 39"
+author: "Zhuangzi (Zhuang Zhou)"
+author_born: -369
+author_died: -286
+year: -300
+posthumous: true
+edition: "Legge, The Texts of Taoism Part I, Sacred Books of the East Vol. 39, Clarendon Press, Oxford, 1891. Book III, Nourishing the Lord of Life, paragraph 1. Zhuangzi's dates are conventional and approximate; the Inner Chapters are generally held to be his, the rest of the received text later, hence the posthumous flag."
+translator: "James Legge"
+translator_died: 1897
+pd_status_us: "Original 4th-3rd century BC. Legge's translation published 1891, earlier than 1930 - public domain in the United States."
+pd_status_eu: "Translator James Legge died 1897; 1897 plus 70 is 1967, so the translation has been in the EU public domain since 1968."
+source_url: "https://archive.org/details/wg939"
+provenance: verified
+quotes:
+  - "There is a limit to our life, but to knowledge there is no limit."

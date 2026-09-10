@@ -1,0 +1,41 @@
+# Every Analects line in the rotation, in James Legge's rendering.
+#
+# Verified 2026-09-10 against TWO independent copies of Legge's own text, not
+# against a quotation site: Project Gutenberg ebook 3330 (Legge's Analects, with
+# his Roman book/chapter numbering) and ctext.org (which pairs the Chinese with
+# Legge and uses the modern decimal numbering). Both were needed. ctext states
+# that it returns deliberately corrupted text to automated readers, so nothing
+# it returned was trusted until Gutenberg's copy of the printed edition agreed.
+#
+# TWO NUMBERING SYSTEMS, both correct, and they do not always agree. Legge
+# numbers the tool-sharpening passage Book XV chapter IX; the modern decimal
+# convention numbers it 15.10. The repo cites the modern one throughout, which
+# is internally consistent. Where they diverge, `edition` records both.
+#
+# PUNCTUATION: Legge sets several of these off with a comma-dash (",— this")
+# where the pool uses a colon or a plain dash. That is a typographic
+# normalisation of the 1861 setting, not a different wording. The exact printed
+# forms are recorded below so a reader can check the difference themselves.
+work: "Confucian Analects, in The Chinese Classics, Vol. I"
+author: "Confucius (Kong Qiu)"
+author_born: -551
+author_died: -479
+year: -400
+posthumous: true
+edition: "Legge's 1861 translation, Vol. I of The Chinese Classics. Locations, Legge numbering first, modern decimal second: I.I (1.1) constant perseverance; II.XV (2.15) learning without thought; II.XVII (2.17) to know that you know; VI.XVIII (6.20) know, love, delight; VII.XXI (7.22) two others as teachers; IX.XXV (9.26) commander of the forces; XIII.III (13.3) if names be not correct; XV.XXIX (15.30) faults not reformed; IV.XVII (4.17) men of worth. Legge prints II.XVII as 'do not know it;— this is knowledge' and XV.XXIX as 'reform them,— this, indeed'; the pool normalises both dashes."
+translator: "James Legge"
+translator_died: 1897
+pd_status_us: "Original composed 5th-4th century BC. Legge's translation published 1861, far earlier than 1930 - public domain in the United States."
+pd_status_eu: "Confucius died 479 BC. Translator James Legge died 1897; 1897 plus 70 is 1967, so the translation has been in the EU public domain since 1968 - public domain in Germany, where this repo is published."
+source_url: "https://www.gutenberg.org/ebooks/3330"
+provenance: verified
+quotes:
+  - "Is it not pleasant to learn with a constant perseverance and application?"
+  - "Learning without thought is labour lost; thought without learning is perilous."
+  - "They who know the truth are not equal to those who love it, and they who love it are not equal to those who delight in it."
+  - "When we see men of worth, we should think of equalling them; when we see men of a contrary character, we should turn inwards and examine ourselves."
+  - "When I walk along with two others, they may serve me as my teachers. I will select their good qualities and follow them, their bad qualities and avoid them."
+  - "To have faults and not to reform them: this, indeed, should be pronounced having faults."
+  - "The commander of the forces of a large state may be carried off, but the will of even a common man cannot be taken from him."
+  - "When you know a thing, to hold that you know it; and when you do not know a thing, to allow that you do not know it - this is knowledge."
+  - "If names be not correct, language is not in accordance with the truth of things."

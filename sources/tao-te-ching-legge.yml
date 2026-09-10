@@ -1,0 +1,35 @@
+# The two Tao Te Ching lines in the rotation, in Legge's 1891 rendering.
+#
+# Verified 2026-09-10 against the OCR of the printed volume itself, pulled from
+# the Internet Archive (identifier wg939, Sacred Books of the East Vol. 39,
+# 1891), and cross-checked against Project Gutenberg ebook 216. Chapter 33.1
+# and 64.2 both came back word for word.
+#
+# WHY "li" AND NOT "miles". Legge writes "the journey of a thousand li
+# commenced with a single step". The famous English form - "a journey of a
+# thousand miles begins with a single step" - belongs to no published
+# translation anyone can name; it is a popular rendering. The pool uses Legge's,
+# which is why this file can say `verified` at all. A sibling harness uses the
+# popular form and is marked unverified for exactly this reason.
+#
+# THE AUTHOR IS THE UNCERTAIN PART, NOT THE TEXT. Laozi's historicity is
+# disputed and the dates below are the traditional ones from Sima Qian, not
+# documented ones. The received Daodejing is a composite text of the 4th-3rd
+# century BC. That uncertainty is about the man; the quotation and its
+# translator are firmly established, which is what `provenance` records here.
+work: "Tao Te Ching, in The Texts of Taoism, Sacred Books of the East Vol. 39"
+author: "Laozi (traditional attribution)"
+author_born: -604
+author_died: -531
+year: -400
+posthumous: true
+edition: "Legge, The Texts of Taoism Part I, Sacred Books of the East Vol. 39, Clarendon Press, Oxford, 1891. Chapter 33.1 and chapter 64.2. Laozi's dates are the traditional ones reported by Sima Qian and are not independently documented; the received text is dated to the 4th-3rd century BC, hence the posthumous flag."
+translator: "James Legge"
+translator_died: 1897
+pd_status_us: "Original 4th-3rd century BC. Legge's translation published 1891, earlier than 1930 - public domain in the United States."
+pd_status_eu: "Translator James Legge died 1897; 1897 plus 70 is 1967, so the translation has been in the EU public domain since 1968."
+source_url: "https://archive.org/details/wg939"
+provenance: verified
+quotes:
+  - "He who knows other men is discerning; he who knows himself is intelligent. He who overcomes others is strong; he who overcomes himself is mighty."
+  - "The journey of a thousand li commenced with a single step."

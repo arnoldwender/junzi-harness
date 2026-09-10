@@ -1,0 +1,34 @@
+# The two Dao De Jing lines quoted in Chinese in README.md, with the English
+# the repo prints beside them.
+#
+# Same split as the Analects entry: the Chinese checks out, the English is the
+# repo's own. Both character references were verified on 2026-09-10 against
+# Legge's printed text in Sacred Books of the East Vol. 39:
+#
+#   道德經 33  知人者智，自知者明
+#   道德經 64  慎終如始，則無敗事
+#
+# Chapter 33's English gloss - "He who knows other men is discerning; he who
+# knows himself is intelligent" - happens to be Legge word for word, and is
+# already carried by tao-te-ching-legge.yml.
+#
+# Chapter 64's is NOT. The repo prints "Careful at the end as at the beginning,
+# and there is no failure"; Legge prints "If they were careful at the end, as
+# (they should be) at the beginning, they would not so ruin them." The repo's
+# version is closer to the Chinese and reads better. It is still not a
+# translation anyone published, and it is set in italics next to a chapter
+# number, so it is recorded here as an editorial gloss.
+work: "Tao Te Ching, cited in classical Chinese with editorial English glosses"
+author: "Laozi (traditional attribution)"
+author_born: -604
+author_died: -531
+year: -400
+posthumous: true
+edition: "Chinese for chapters 33 and 64 verified against Legge, Sacred Books of the East Vol. 39 (1891), Internet Archive identifier wg939, on 2026-09-10. The chapter-33 English matches Legge verbatim; the chapter-64 English does not match any located edition."
+pd_status_us: "The classical Chinese text is public domain worldwide. The chapter-64 English gloss is original writing by the repo author."
+pd_status_eu: "The Chinese is public domain in the EU. The chapter-64 English gloss is the repo author's own words, published under the repo's MIT licence."
+source_url: "https://archive.org/details/wg939"
+provenance: unverified
+provenance_note: "Both Chinese references are verified correct. The chapter-64 English, 'Careful at the end as at the beginning, and there is no failure', could not be located in any published translation and differs from Legge, the translator PRECEPTS.md names for the pool. It reads as the repo's own condensation. Laozi's historicity and dates are separately uncertain - the dates given are the traditional ones from Sima Qian, not documented ones."
+quotes:
+  - "Careful at the end as at the beginning, and there is no failure"
