@@ -113,12 +113,66 @@ The full rotation and its sources live in **[`PRECEPTS.md`](PRECEPTS.md)**; the 
 
 ---
 
+## The gate: 正名, the rectification of names
+
+Asked what he would do first if given a state to govern, Confucius answered: rectify the names.
+
+> "If names be not correct, language is not in accordance with the truth of things."
+> — Confucius, *Analects* XIII.3, tr. James Legge, *The Chinese Classics*, Vol. I: Confucian Analects (1861)
+
+[`gate/rectify_names.py`](gate/rectify_names.py) is that instruction pointed at source code. It reads a diff and reports the **exported symbols whose names contradict their bodies** — `get_user()` that empties a cache, `is_valid()` that can return the string `"maybe"`, `flush_sync()` declared `async`. Every reader downstream reasons from the name; when the name is wrong, so is everything built on top of it.
+
+It is a linter, and that is the point. A discipline nobody can check is a preference.
+
+### What it checks
+
+| Finding | Fires when | Rule id |
+| --- | --- | --- |
+| A reader that writes | `get_*` / `fetch_*` / `read_*` assigns to `self` or a global, `del`s, or calls a mutating method on something it did not create itself | `mutating-accessor` |
+| A question with no answer | `is_*` / `has_*` / `can_*` / `should_*` provably returns a non-boolean, or falls off the end into `None` | `non-boolean-predicate` |
+| A suffix that misleads | `*_sync` declared `async`, or `*_async` that is an ordinary function | `async-suffix-mismatch` |
+| A name that says nothing | an exported `data`, `temp2`, `utils`, `handler`, `process`, `do_stuff`… | `vacuous-name` |
+| A plural that returns one | `get_records()` or `fetch_all()` handing back a single element | `plural-returns-one` |
+| A singular that returns many | `get_record()` handing back a list | `singular-returns-many` |
+| A constant that moves | an `UPPER_CASE` name rebound after its definition | `constant-reassigned` |
+| A file it could not read | Python that does not parse — reported, never silently skipped | `unparseable` |
+
+### Scope, on purpose
+
+**Exported symbols only** — module-level functions, classes and values, plus the public methods of module-level classes, narrowed further by `__all__` when a module declares one. A mis-named local inside a three-line function lies to nobody; a public name lies to everyone who imports it. A gate that demanded perfect names on every `for i in ...` would be uninstalled within a week, and would deserve to be.
+
+The same restraint governs the checks themselves: only **provable** contradictions are reported. `return self._flag` from an `is_*` is left alone — the gate has no types and will not pretend otherwise.
+
+Python is analysed with the `ast` module rather than regex, which is what separates this from a grep: it can tell a mutation of the caller's list from an append to the function's own scratch list. **JavaScript/TypeScript support is partial, and says so** — without a parser only the declaration line can be read honestly, so `export function` and `export const … =>` get the two checks that live in the declaration (`vacuous-name`, `async-suffix-mismatch`) and none of the body checks. It does not claim parity with the Python path.
+
+### Running it
+
+```bash
+python3 gate/rectify_names.py                    # the diff against origin/main
+python3 gate/rectify_names.py --base HEAD~1
+python3 gate/rectify_names.py --files a.py b.ts
+python3 gate/rectify_names.py --all --sarif names.sarif
+```
+
+Exit `0` clean · `1` findings · `2` the gate itself failed. The third is not decoration: a checker that returns `1` when it crashed reads as "I found something", and one that returns `0` reads as "clean" and fails open. A name that stays wrong on purpose goes in [`.conduct/names-allow.txt`](.conduct/names-allow.txt) — one name or regex per line, with the reason written beside it.
+
+### What it automates, and what it does not
+
+This gate automates **one corner of 禮 Lǐ** — proper form in what you leave behind — and nothing else. 正名 is that corner precisely: the vocabulary the next reader inherits.
+
+It does **not** automate 智 Zhì, 信 Xìn or 義 Yì. Whether you took the gleaming shortcut, whether your report matched the state of the tree, whether you stopped at the first error — no linter reads any of that, and this one does not claim to. It brushes 信 by analogy only: a name that misdescribes its body is a false statement left in the code. Honesty as the codex defines it is about how you *report*, and stays exactly where it was — with the human and the reviewer.
+
+The tests are the other half. [`tests/test_rectify_names.py`](tests/test_rectify_names.py) plants each defect and requires exit `1`, then writes the same code honestly and requires exit `0`. [`tests/mutation_check.py`](tests/mutation_check.py) deletes each check **and each exemption** in turn and requires the suite to go red — an untested carve-out is as hollow as an untested rule.
+
+---
+
 ## Status
 
 **Early, but real.** The disciplines are settled and the reference wiring ships with the harness:
 
 - the **session-start hook** that injects the codex plus the opening precept;
 - **starter agents** already carrying the four disciplines;
+- the **rectification-of-names gate** — [`gate/rectify_names.py`](gate/rectify_names.py), with its tests and a mutation check that proves they bite;
 - **[`PRECEPTS.md`](PRECEPTS.md)** — the vetted, sourced rotation;
 - a **worked before/after example** in [`EXAMPLE.md`](EXAMPLE.md) — the same task run without the harness (done-declared-early, a shortcut, a softened report) and with it (gates backed the "done," the reversible path was taken, the failure was stated plainly).
 
