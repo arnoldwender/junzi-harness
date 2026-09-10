@@ -1,11 +1,69 @@
-# The Analects lines quoted in Chinese in README.md and CODEX.md, with the
-# English the repo prints beside them.
+# The Analects lines quoted in Chinese in README.md and CODEX.md whose English
+# is the repo's OWN WORDING, not a published translation.
 #
-# THE CHINESE IS VERIFIED. THE ENGLISH IS NOT A PUBLISHED TRANSLATION.
+# RESOLVED 2026-09-10, in CODEX.md only. Four of the entries this file used to
+# carry sat inside quotation marks with a chapter number after them, which is a
+# promise of literalness the wording did not keep. All four were replaced with
+# James Legge verbatim and moved to analects-legge.yml:
 #
-# Every character reference below was checked against the text on 2026-09-10
-# and every one is right - the passages exist, and the chapter numbers match
-# the modern decimal convention the repo uses throughout:
+#   16.13  was  "Without right form, one has no ground to stand."
+#          now  "If you do not learn the rules of Propriety, your character
+#                cannot be established."
+#   2.17   was  "To know what you know, and to know what you do not - that is
+#                wisdom."
+#          now  "When you know a thing, to hold that you know it; and when you
+#                do not know a thing, to allow that you do not know it - this
+#                is knowledge."
+#   2.22   was  "A person without trust - I cannot see what use they are."
+#          now  "I do not know how a man without truthfulness is to get on."
+#   2.24   was  "To see what is right and fail to do it is want of courage."
+#          now  "To see what is right and not to do it is want of courage."
+#
+# The old wordings are printed above rather than deleted, so a reader can audit
+# the substitution instead of taking it on trust. THE FOUR CHINESE REFERENCES
+# WERE CORRECT THROUGHOUT AND WERE NOT TOUCHED - only the English changed.
+#
+# WHAT REMAINS IN THIS FILE IS STILL THE REPO'S OWN ENGLISH, and stays here
+# because it is presented as a gloss and not as a quotation: no quotation marks
+# in CODEX.md, and italic prose with the Chinese in parentheses in README.md.
+# Six README lines are in that state and are listed below; two more sit in
+# CODEX.md prose (12.1 and 4.16). None of them promises literalness, so none of
+# them is the failure the block above describes - but none is Legge either, and
+# README.md tells the reader the pool is Legge throughout. Bringing them to
+# Legge verbatim is a separate change on a separate surface and was deliberately
+# not folded into the CODEX.md fix. Legge's own wordings, for whoever takes it:
+#
+#   13.17  repo   "desire speed and you will not arrive"
+#          Legge  "Desire to have things done quickly prevents their being done
+#                  thoroughly."
+#   15.10  repo   "The craftsman who would do his work well first sharpens his
+#                  tools"
+#          Legge  "The mechanic, who wishes to do his work well, must first
+#                  sharpen his tools."
+#   13.3   repo   "If names are not correct, language does not accord with the
+#                  truth of things"
+#          Legge  "If names be not correct, language is not in accordance with
+#                  the truth of things."  (README already prints this verbatim
+#                  further down, in the 正名 section - so the repo currently
+#                  renders 13.3 two different ways on one page.)
+#   2.22   repo   "A person without trustworthiness - I do not know what they
+#                  are good for"
+#          Legge  "I do not know how a man without truthfulness is to get on."
+#   2.24   repo   "To see what is right and not do it is want of courage"
+#          Legge  "To see what is right and not to do it is want of courage."
+#                 (one word: "not to do", not "not do")
+#   12.1   repo   "to master oneself and return to right form is benevolence"
+#          Legge  "To subdue one's self and return to propriety, is perfect
+#                  virtue."
+#
+# THE CHINESE IS VERIFIED. THE ENGLISH BELOW IS NOT A PUBLISHED TRANSLATION.
+#
+# Every Chinese reference the repo prints was checked against the text on
+# 2026-09-10 and every one is right - the passages exist, and the chapter
+# numbers match the modern decimal convention the repo uses throughout. Four of
+# them - 2.17, 2.22, 2.24 and 16.13 - now carry Legge's English and belong to
+# analects-legge.yml; they stay in this list because the list is the record of
+# what was measured, not of what this file still owns:
 #
 #   2.17  知之為知之，不知為不知，是知也
 #   2.22  人而無信，不知其可也
@@ -19,41 +77,28 @@
 #
 # What could NOT be confirmed is the English. These renderings match no
 # published translation that could be located - not Legge, whose wordings are
-# recorded in analects-legge.yml and are visibly different. Compare:
-#
-#   CODEX.md  "A person without trust - I cannot see what use they are."
-#   Legge     "I do not know how a man without truthfulness is to get on."
-#
-#   CODEX.md  "To see what is right and fail to do it is want of courage."
-#   Legge     "To see what is right and not to do it is want of courage."
-#
-#   README    "The craftsman who would do his work well first sharpens his tools"
-#   Legge     "The mechanic, who wishes to do his work well, must first sharpen
-#              his tools."
+# recorded in analects-legge.yml and, where they overlap, are printed in the
+# comparison table at the top of this file.
 #
 # They read as the repo's own condensations of the Chinese, which is a legitimate
 # thing to write and an illegitimate thing to leave in quotation marks with a
-# chapter number after it. That is the shape of the failure this gate exists to
-# catch, so it is recorded here rather than quietly smoothed over. Marked
-# unverified until either a published edition is named for each wording, or the
-# text says plainly that the English is the repo's own gloss.
+# chapter number after it. The four that did that are fixed; the ones still
+# listed below do not, so they stay - as glosses, declared. Marked unverified
+# because that is what they are: the repo's own English, attributable to no
+# edition, and PRECEPTS.md tells the reader the pool is Legge throughout.
 work: "Confucian Analects, cited in classical Chinese with editorial English glosses"
 author: "Confucius (Kong Qiu)"
 author_born: -551
 author_died: -479
 year: -400
 posthumous: true
-edition: "Chinese passages verified against ctext.org and Legge's printed text (Project Gutenberg 3330), 2026-09-10. Chapter numbering is the modern decimal convention. English wordings are editorial and are attributed to no edition."
+edition: "Chinese passages verified against Legge's printed text (Project Gutenberg 3330) and, for the four re-cited on 2026-09-10, independently against zh.wikisource.org rather than ctext.org, which states that it serves deliberately corrupted text to automated readers. Chapter numbering is the modern decimal convention. English wordings are editorial and are attributed to no edition."
 pd_status_us: "The classical Chinese text is public domain worldwide. The English glosses are original writing by the repo author and carry that author's own rights, not a translator's."
 pd_status_eu: "Confucius died 479 BC, so the Chinese is public domain in the EU. The English glosses are the repo author's own words, published under the repo's MIT licence."
 source_url: "https://www.gutenberg.org/ebooks/3330"
 provenance: unverified
-provenance_note: "The Chinese source references are all verified - the passages exist and the chapter numbers are correct. What is unverified is the ENGLISH: the renderings printed in CODEX.md and README.md could not be located in any published translation, and they differ measurably from Legge, whom PRECEPTS.md names as the pool's translator. They appear to be the repo's own condensations. Four of them sit inside quotation marks with a chapter citation, which presents an editorial gloss as a quotation. Needs a decision from the author: name an edition for each, or mark the English as the repo's own rendering."
+provenance_note: "The Chinese source references are all verified - the passages exist and the chapter numbers are correct. What is unverified is the ENGLISH: the renderings listed below could not be located in any published translation, and they differ measurably from Legge, whom PRECEPTS.md names as the pool's translator. They are the repo's own condensations. The four that presented themselves as quotations - quotation marks plus a chapter number, in the CODEX.md epigraphs - were replaced with Legge verbatim on 2026-09-10 and moved to analects-legge.yml; the before/after is written out at the top of this file. What is left is deliberately still here: six italic glosses in README.md prose and two unquoted glosses in CODEX.md prose, none of which claims to be a quotation. They remain unverified because they remain the repo's own English, and this file stays marked unverified for exactly that reason rather than being retired as fixed. Open, and named rather than left to be found: README.md renders 13.3 as a gloss in one section and as Legge verbatim in another, so one page carries two different Englishes for the same passage."
 quotes:
-  - "Without right form, one has no ground to stand."
-  - "To know what you know, and to know what you do not - that is wisdom."
-  - "A person without trust - I cannot see what use they are."
-  - "To see what is right and fail to do it is want of courage."
   - "to master oneself and return to right form is benevolence"
   - "the junzi is moved by what is right"
   - "desire speed and you will not arrive"
