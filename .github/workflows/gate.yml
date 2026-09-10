@@ -1,0 +1,72 @@
+name: gate
+
+# The Junzi Harness runs its own falsifier on every push. A repo whose codex
+# says "done is what the gates return" cannot ship a gate nobody ran.
+#
+# The required status check for this branch is `check` (scripts/check.py, in
+# check.yml). This workflow adds the rectify-names gate alongside it; it is
+# deliberately a separate job so a naming finding is legible on its own.
+#
+# No step interpolates untrusted input into a `run:`. The one context value this
+# workflow needs — the PR's target branch — is passed through `env:` and quoted
+# at the point of use, never pasted into the command line.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  # A new push on the same branch cancels the previous run: without this a burst
+  # of commits pays for N runs and only the last one matters.
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  names:
+    name: rectify names
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          # The gate's default input is the diff against origin/main, and a
+          # shallow clone has no origin/main to diff against.
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Install
+        run: python -m pip install --upgrade pip pytest
+
+      - name: Self-check (the repo keeps its own promises)
+        run: python3 scripts/check.py
+
+      - name: Rectify-names gate (whole repo)
+        run: python3 gate/rectify_names.py --all --sarif names.sarif
+
+      - name: Rectify-names gate (the diff, on pull requests)
+        if: github.event_name == 'pull_request'
+        env:
+          BASE_REF: ${{ github.base_ref }}
+        run: python3 gate/rectify_names.py --base "origin/$BASE_REF"
+
+      - name: Mutation check (do the tests defend the gate?)
+        run: python3 tests/mutation_check.py
+
+      - name: Tests
+        run: python3 -m pytest tests/ -q
+
+      - name: Upload SARIF
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rectify-names-sarif
+          path: names.sarif
+          if-no-files-found: ignore

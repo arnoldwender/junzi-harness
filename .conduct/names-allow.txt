@@ -1,0 +1,19 @@
+# Names the rectify-names gate should leave alone.
+#
+#   gate/rectify_names.py
+#
+# One entry per line. Each is a Python regular expression matched against the
+# whole subject — for a symbol finding the subject is the symbol's own name, and
+# for a file-level finding (unparseable, unreadable) it is the path relative to
+# the repo root. `#` starts a comment; blank lines are ignored.
+#
+#   get_or_create_user        one exact name
+#   read_.*_cached            a family of them
+#   vendor/.*                 a path the gate should not read at all
+#
+# A line that is not a valid regular expression is REPORTED as a finding rather
+# than skipped: an allowlist that quietly drops half its entries suppresses
+# nothing and hides that it does not.
+#
+# Keep this file short. Every entry here is a name that stays wrong on purpose,
+# so each one wants the reason written next to it.
