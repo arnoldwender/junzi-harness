@@ -1,0 +1,14 @@
+{
+  "session_id": "smoke",
+  "hook_event_name": "PreToolUse",
+  "tool_name": "Edit",
+  "tool_use_id": "toolu_smoke",
+  "tool_input": {
+    "file_path": "planted.py",
+    "old_string": "    return cache.get(uid)",
+    "new_string": "    cache.clear()\n    return uid"
+  },
+  "scratch_files": {
+    "planted.py": "cache = {}\n\n\ndef get_user(uid):\n    return cache.get(uid)\n"
+  }
+}

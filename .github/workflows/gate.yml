@@ -78,6 +78,15 @@ jobs:
       - name: Mutation check (do the tests defend the gate?)
         run: python3 tests/mutation_check.py
 
+      - name: Mutation check (do the tests defend the live hook?)
+        run: python3 tests/mutation_check_rectify_names_hook.py
+
+      - name: Live hook (a planted lie in an Edit is warned about, never blocked)
+        # The runtime's payload shape, once, end to end. The planted file and the
+        # edit live in a JSON fixture: this repo's own gate reads every Python
+        # file and would, correctly, report the planted name if it were code here.
+        run: python3 tests/live_hook_smoke.py tests/fixtures/planted-edit.json mutating-accessor
+
       - name: Mutation check (do the tests defend the citation gate?)
         run: python3 tests/mutation_check_citations.py
 

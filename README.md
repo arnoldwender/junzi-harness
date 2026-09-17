@@ -88,6 +88,7 @@ The discipline here **stands on craft**. Every rule reduces to something a build
 
 - **Paste the block.** Drop the contents of [`codex-block.md`](codex-block.md) into the instructions your agent already reads — `AGENTS.md`, `CLAUDE.md`, a system prompt, whatever your harness loads. It is the single source the hook and your agent file share. That's the whole install; the full codex, rule by rule with a falsifier on each, is in [`CODEX.md`](CODEX.md).
 - **Or wire the hook.** [`hooks/session-start.sh`](hooks/session-start.sh) emits the first word and the conduct block at the top of every session, so no one has to remember to paste it — see [hooks/](hooks/).
+- **And the live one.** [`hooks/rectify-names-before-write.py`](hooks/rectify-names-before-write.py) runs the gate on every `Edit` and `Write` before the name lands and warns the agent when the change leaves an exported name that contradicts its body — see [hooks/](hooks/) and *Live, before the name lands* below.
 - **Or install it as an Agent Skill.** [`SKILL.md`](SKILL.md) packages the same block in the
   [Agent Skills](https://agentskills.io/specification) format: clone this repository into your
   agent's skills directory as `junzi-harness/` (the directory name must match the skill name).
@@ -168,6 +169,16 @@ It does **not** automate 智 Zhì, 信 Xìn or 義 Yì. Whether you took the gle
 
 The tests are the other half. [`tests/test_rectify_names.py`](tests/test_rectify_names.py) plants each defect and requires exit `1`, then writes the same code honestly and requires exit `0`. [`tests/mutation_check.py`](tests/mutation_check.py) deletes each check **and each exemption** in turn and requires the suite to go red — an untested carve-out is as hollow as an untested rule.
 
+### Live, before the name lands — `hooks/rectify-names-before-write.py`
+
+The gate reads a diff, in CI, after the commit. That is the right shape for a verdict and the wrong shape for a correction: by the time it runs, the `get_user()` that empties a cache has been written, three callers have been written against the name, and the summary has gone out. 禮 Lǐ 1 — heal in passing — is kept or broken at the moment of the edit, and the name is the first thing the next reader inherits from it. So the same gate also runs as a Claude Code `PreToolUse` hook on `Edit`, `Write` and `MultiEdit`, against the one file about to change, with the session's working directory as its root: the same seven checks, the same allowlist. The edit is simulated first — the file as it will be after it — and the gate's checks run twice, over the file on disk and over the result; only what the result carries and the disk did not is reported. A name that already lied before this edit is not this edit's debt, which is the same restraint the gate applies to a diff. If the change adds a lie, the agent reads the finding **in the tool result**, and the change goes through:
+
+> rectify-names: this change leaves an exported name that does not say what its symbol does. [mutating-accessor] `planted.py`:5: `get_user` reads by its name and calls `cache.clear()` by its body — a caller cannot see that from the call site. Li 禮 1, heal in passing: the name is the first thing the next reader inherits, and 正名 (Analects XIII.3) asks that it accord with the thing. Rename the symbol to what its body does, or make the body do what the name says; a name that stays wrong on purpose goes in .conduct/names-allow.txt with its reason. Only what this change adds is reported: a name that already lied is not its debt. Warning mode: this change is NOT blocked.
+
+Warning, not blocking, on purpose — and that is 信 Xìn applied to the hook itself: a guard whose false-positive rate nobody has measured on real sessions is switched off by the first person it wrongly stops, and a hook that is switched off reports nothing forever, which looks exactly like clean work. Every run leaves a receipt (verdict, checks, counts — never a line of the file, never a symbol's name), so the rate is a count over your own sessions rather than a claim in this README. `RECTIFY_NAMES_HOOK_MODE=block` exists for whoever has measured theirs. Wiring, receipts and the limits it states in [hooks/](hooks/); 65 tests and 9 mutants, each mutant killed, in [`tests/`](tests/).
+
+**Measured before it shipped, over 80 recorded sessions on one machine** — the hook's own `judge` replayed over every real `Edit` and `Write` in the transcripts, which is the number the receipts would have produced: 4,960 replayable calls, 21 warned (0.42 %) in 13 sessions, 0 errors of the hook's own; 13,308 edits could not be replayed because the file has since changed underneath them. Of the 48 findings behind those 21 calls, 45 were the instrument and not the hook: a replay applies an edit to today's disk, where that edit landed long ago, so a constant it inserted is bound twice and reported as `constant-reassigned` — verified against the disk for every one, and impossible in a live session, whose disk does not hold the result yet. The other 3 were `unparseable` on a `Write` whose content did not parse as Python, which is a finding the gate is right to raise. The one false positive the measurement did find was in the gate, not the hook: `handle_data` on a subclass of `html.parser.HTMLParser` is the name the standard library dictates, and the gate called it vacuous. It was fixed in the gate, with a test and a mutant, before this landed.
+
 ---
 
 ## The second gate: 信, provenance
@@ -192,7 +203,7 @@ Exit `0` clean · `1` findings · `2` the gate itself failed — the same contra
 
 - the **session-start hook** that injects the codex plus the opening precept;
 - **starter agents** already carrying the four disciplines;
-- the **rectification-of-names gate** — [`gate/rectify_names.py`](gate/rectify_names.py), with its tests and a mutation check that proves they bite;
+- the **rectification-of-names gate** — [`gate/rectify_names.py`](gate/rectify_names.py), with its tests and a mutation check that proves they bite — and live, in warning mode, as a `PreToolUse` hook on every `Edit` and `Write` before the name lands ([`hooks/rectify-names-before-write.py`](hooks/rectify-names-before-write.py)), with its own tests, mutants and an end-to-end smoke of the runtime's payload;
 - **[`PRECEPTS.md`](PRECEPTS.md)** — the vetted, sourced rotation, with [`sources/`](sources/) and [`gate/citations.py`](gate/citations.py) behind it so "sourced" is a check and not a claim;
 - a **worked before/after example** in [`EXAMPLE.md`](EXAMPLE.md) — the same task run without the harness (done-declared-early, a shortcut, a softened report) and with it (gates backed the "done," the reversible path was taken, the failure was stated plainly).
 

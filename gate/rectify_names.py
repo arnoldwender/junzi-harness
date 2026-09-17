@@ -112,6 +112,16 @@ VACUOUS = re.compile(
     r"^(?:data|temp|tmp|obj|thing|stuff|foo|bar|baz|utils?|helpers?|"
     r"manager|handler|process|handle_data|do_stuff)\d*$", re.IGNORECASE)
 
+# Method names a standard-library base class dictates. `handle_data` is in VACUOUS
+# because on a function it says nothing; on a subclass of `html.parser.HTMLParser`
+# it is the override the library requires, and the author did not choose it.
+# Measured over 6,633 real Edit/Write calls before this line existed: the one
+# vacuous-name finding was exactly that method, on exactly that subclass. A gate
+# that fires on the standard library's own vocabulary is a gate people learn to
+# ignore. Only a method of a class WITH bases is exempt; the same name on a
+# base-less class or at module level is still the author's, and still vacuous.
+INHERITED_NAMES = frozenset({"handle_data"})
+
 CONSTANT_NAME = re.compile(r"^[A-Z][A-Z0-9_]*$")
 
 # Suffixes that already declare the symbol holds a collection, so a list return
@@ -155,6 +165,7 @@ class Symbol:
     is_async: bool = False
     node: Any = None           # the ast node, or None for JS/TS
     owner: str = ""            # the class, for a method
+    inherits: bool = False     # the owner class declares at least one base
 
 
 # --- shared name helpers ------------------------------------------------------
@@ -384,7 +395,8 @@ def parse_python(text: str, rel: str, findings: list[Finding]) -> tuple[list[Sym
                         continue          # dunder and private: not the public face
                     symbols.append(Symbol(
                         member.name, rel, member.lineno, "method",
-                        isinstance(member, ast.AsyncFunctionDef), member, node.name))
+                        isinstance(member, ast.AsyncFunctionDef), member, node.name,
+                        bool(node.bases)))
         elif isinstance(node, (ast.Assign, ast.AnnAssign)):
             targets = node.targets if isinstance(node, ast.Assign) else [node.target]
             for target in targets:
@@ -583,6 +595,8 @@ def check_vacuous_name(sym: Symbol, findings: list[Finding]) -> None:
     """
     if not (VACUOUS.match(sym.name) or VACUOUS.match(_snake(sym.name))):
         return
+    if sym.kind == "method" and sym.inherits and sym.name in INHERITED_NAMES:
+        return                              # the base class chose the name, not the author
     findings.append(Finding(
         "vacuous-name",
         f"exported {sym.kind} `{_qualified(sym)}` is named for nothing in "
@@ -902,11 +916,21 @@ def analyze_file(path: Path, findings: list[Finding]) -> int:
         findings.append(Finding("unreadable", f"{rel} could not be read ({exc})",
                                 rel, 1, rel))
         return 0
+    return analyze_text(text, rel, path.suffix, findings)
 
+
+def analyze_text(text: str, rel: str, suffix: str, findings: list[Finding]) -> int:
+    """Run every check over one file's TEXT. Returns the number of exported symbols.
+
+    Split from `analyze_file` so the live hook (hooks/rectify-names-before-write.py)
+    can judge a file as it WILL be after an edit, before the edit lands — through
+    this dispatch and these checks, not a second copy of them. `suffix` decides
+    the language exactly as the path's suffix does for a file on disk.
+    """
     tree: Any = None
-    if path.suffix in PY_SUFFIXES:
+    if suffix in PY_SUFFIXES:
         symbols, tree = parse_python(text, rel, findings)
-    elif path.suffix in JS_SUFFIXES:
+    elif suffix in JS_SUFFIXES:
         symbols = js_symbols(text, rel)
     else:
         return 0

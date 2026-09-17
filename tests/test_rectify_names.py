@@ -339,6 +339,44 @@ def test_exported_handler_function_is_caught(repo: Path) -> None:
     assert "vacuous-name" in result.stdout
 
 
+def test_an_html_parser_override_named_handle_data_passes(repo: Path) -> None:
+    """`handle_data` is the method `html.parser.HTMLParser` requires a subclass to
+    define. The standard library chose that name; the gate does not get to call
+    it vacuous. Measured on real sessions: the one vacuous-name warning the live
+    hook raised was this method on this base class."""
+    plant(repo, """
+        from html.parser import HTMLParser
+
+
+        class Links(HTMLParser):
+            def handle_data(self, data):
+                self.text.append(data)
+    """)
+    assert scan(repo).returncode == 0
+
+
+def test_handle_data_on_a_class_with_no_base_is_still_vacuous(repo: Path) -> None:
+    """The exemption reaches only a name a base class could have dictated."""
+    plant(repo, """
+        class Links:
+            def handle_data(self, data):
+                return data
+    """)
+    result = scan(repo)
+    assert result.returncode == 1, result.stdout
+    assert "vacuous-name" in result.stdout
+
+
+def test_a_module_level_handle_data_is_still_vacuous(repo: Path) -> None:
+    plant(repo, """
+        def handle_data(data):
+            return data
+    """)
+    result = scan(repo)
+    assert result.returncode == 1, result.stdout
+    assert "vacuous-name" in result.stdout
+
+
 def test_dunder_all_narrows_the_public_surface(repo: Path) -> None:
     """A symbol the module does not export is not part of anyone's vocabulary."""
     plant(repo, """
