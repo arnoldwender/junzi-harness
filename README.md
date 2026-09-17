@@ -88,6 +88,10 @@ The discipline here **stands on craft**. Every rule reduces to something a build
 
 - **Paste the block.** Drop the contents of [`codex-block.md`](codex-block.md) into the instructions your agent already reads — `AGENTS.md`, `CLAUDE.md`, a system prompt, whatever your harness loads. It is the single source the hook and your agent file share. That's the whole install; the full codex, rule by rule with a falsifier on each, is in [`CODEX.md`](CODEX.md).
 - **Or wire the hook.** [`hooks/session-start.sh`](hooks/session-start.sh) emits the first word and the conduct block at the top of every session, so no one has to remember to paste it — see [hooks/](hooks/).
+- **Or install it as an Agent Skill.** [`SKILL.md`](SKILL.md) packages the same block in the
+  [Agent Skills](https://agentskills.io/specification) format: clone this repository into your
+  agent's skills directory as `junzi-harness/` (the directory name must match the skill name).
+  Verified on Claude Code 2.1.273 (2026-09-17); other hosts that read the format were not run.
 - **Always active; intensity scales with the stakes.** A one-line typo fix and a database migration invoke the same disciplines; the migration just leans hard on 智 (reversible-first, verify before "done") while the typo fix mostly exercises 禮. The codex doesn't slow small work down — it catches the moment small work quietly becomes consequential.
 
 ---
