@@ -8,11 +8,11 @@ require the suite to go RED. A test that still passes with the mechanism gone is
 not testing the mechanism — it is decoration that reports green forever.
 
 The list covers both halves of the gate. The six checks are the obvious half:
-delete one and the defect it catches must go unreported. The five exemptions are
+delete one and the defect it catches must go unreported. The six exemptions are
 the half people forget — the local-scratch carve-out, `__all__`, the private
-underscore, mutually exclusive branches, the allowlist. Those are what keep this
-gate installable, and an untested exemption is exactly as hollow as an untested
-check.
+underscore, mutually exclusive branches, the allowlist, and the method name a
+base class dictates. Those are what keep this gate installable, and an untested
+exemption is exactly as hollow as an untested check.
 
 Exit 0 when every mutant was killed; 1 when any survived; 2 when this script
 itself could not run (the same contract as the gate).
