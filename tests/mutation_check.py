@@ -54,6 +54,9 @@ MUTANTS = [
      "    return False"),
     ("EXEMPTION the allowlist suppresses",
      "    return any(p.fullmatch(subject) for p in patterns)", "    return False"),
+    ("EXEMPTION a name the base class dictates is not the author's",
+     '    if sym.kind == "method" and sym.inherits and sym.name in INHERITED_NAMES:',
+     "    if False:"),
 ]
 
 
